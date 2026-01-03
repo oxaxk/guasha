@@ -52,18 +52,6 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="header__nav">
-          {navLinks.map(link => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`header__nav-link ${location.pathname === link.path ? 'header__nav-link--active' : ''}`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
         <div className="header__actions">
           <button
             className="header__cart-btn"
