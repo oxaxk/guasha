@@ -49,7 +49,7 @@
 }
 
 .header__nav {
-  display: flex;
+  display: none;
   align-items: center;
   gap: var(--space-8);
 }
@@ -88,6 +88,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .header__search-btn {
@@ -136,12 +138,14 @@
 }
 
 .header__menu-btn {
-  display: none;
+  display: flex;
   width: 40px;
   height: 40px;
   padding: 0;
   align-items: center;
   justify-content: center;
+  order: -1;        /* Hamburger ganz nach links schieben */
+  margin-right: auto; /* Search/Cart nach rechts drücken */
 }
 
 .header__menu-icon {
@@ -190,7 +194,7 @@
   z-index: 1; /* unter Header-Container, über Content */
   background-color: #ffffff;
   min-height: 100vh;
-  padding: calc(var(--header-height) + var(--space-4)) var(--space-6) var(--space-8);
+  padding: calc(var(--header-height) + var(--space-14)) var(--space-6) var(--space-8);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -210,6 +214,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  align-items: center;
+  /* Navigation im Overlay bewusst weiter nach unten setzen */
+  margin-top: 12rem;
 }
 
 .header__mobile-link {
@@ -219,6 +226,7 @@
   color: var(--color-text-primary);
   opacity: 0;
   transform: translateY(10px);
+  text-align: center;
 }
 
 .header__mobile-overlay--open .header__mobile-link {
@@ -228,17 +236,5 @@
 @media (max-width: 1180px) {
   .header__nav {
     display: none;
-  }
-
-  .header__actions {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  .header__menu-btn {
-    display: flex;
-    order: -1; /* Hamburger ganz nach links schieben */
-    margin-right: auto; /* Icons nach rechts drücken */
   }
 }
